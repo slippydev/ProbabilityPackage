@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+public enum ProbabilityError: Error {
+    case numberTooLarge(String)
+    case numberTooSmall(String)
+    case badInput(String)
+    case kTooLarge
+}
