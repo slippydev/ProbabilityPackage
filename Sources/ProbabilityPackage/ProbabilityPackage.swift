@@ -58,7 +58,7 @@ public func probability(successes k: Int, testCount n: Int, successProb p: Doubl
 /// - parameter verbose: boolean flag to print probablility calculation details to the console
 /// - parameter successProb: probability of success for each test; defaults to 0.5
 /// - returns: Probability expressed as a Double value between 0 and 1
-func probGreaterThanOrEqual(successes k: Int, testCount n: Int, verbose: Bool = false, successProb: Double = 0.5) -> Double {
+public func probGreaterThanOrEqual(successes k: Int, testCount n: Int, verbose: Bool = false, successProb: Double = 0.5) -> Double {
     var sum: Double = 0
     for i in k...n {
         let prob = probability(successes: i, testCount: n)
