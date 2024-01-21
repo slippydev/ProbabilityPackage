@@ -36,7 +36,6 @@ public func binomialCoefficient(n: Int, k: Int) throws -> Int {
 
 /// Callculate the probability of getting exactly k successes from n tests with a success probability of p for each test.
 ///
-/// Throws a ``ProbabilityError`` for invalid values. n must be equal to or larger than k
 ///  - parameter successes: number of desired successes
 ///  - parameter testCount: number of tests to conduct
 ///  - parameter successProb: probability of success for each test; defaults to 0.5
@@ -52,14 +51,14 @@ public func probability(successes k: Int, testCount n: Int, successProb p: Doubl
 
 /// Calculate the probability of getting k or more success from n tests, with a success probability of p for each test.
 ///
-/// Throws a ``ProbabilityError`` for invalid values. `testCount` must be greater than or equal to `successes`.
 /// - parameter successes:minimum number of desired successes
 /// - parameter testCount: number of tests to conduct
 /// - parameter verbose: boolean flag to print probablility calculation details to the console
 /// - parameter successProb: probability of success for each test; defaults to 0.5
 /// - returns: Probability expressed as a Double value between 0 and 1
-public func probGreaterThanOrEqual(successes k: Int, testCount n: Int, verbose: Bool = false, successProb: Double = 0.5) -> Double {
+public func probabilityGreaterThanOrEqual(successes k: Int, testCount n: Int, verbose: Bool = false, successProb: Double = 0.5) -> Double {
     var sum: Double = 0
+    guard k <= n else { return 0 }
     for i in k...n {
         let prob = probability(successes: i, testCount: n)
         if verbose { print("Probability of \(i) success from \(n) dice: \(prob)") }

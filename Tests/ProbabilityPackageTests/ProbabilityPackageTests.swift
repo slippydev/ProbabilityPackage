@@ -35,4 +35,14 @@ final class ProbabilityPackageTests: XCTestCase {
         XCTAssertEqual(probability(successes: 10, testCount: 16), 0.1221923828125)
         XCTAssertEqual(probability(successes: 3, testCount: 21), 0.0)
     }
+    
+    func testProbabilityGreaterThanOrEqual() throws {
+        XCTAssertEqual(probabilityGreaterThanOrEqual(successes: 0, testCount: 0), 0.0)
+        XCTAssertEqual(probabilityGreaterThanOrEqual(successes: 0, testCount: 1), 1.0)
+        XCTAssertEqual(probabilityGreaterThanOrEqual(successes: 2, testCount: 5), 0.8125)
+        XCTAssertEqual(probabilityGreaterThanOrEqual(successes: 3, testCount: 1), 0.0)
+        XCTAssertEqual(probabilityGreaterThanOrEqual(successes: 3, testCount: 3), 0.125)
+        XCTAssertEqual(probabilityGreaterThanOrEqual(successes: 5, testCount: 5), 0.03125)
+        XCTAssertEqual(probabilityGreaterThanOrEqual(successes: 1, testCount: 9), 0.998046875)
+    }
 }
